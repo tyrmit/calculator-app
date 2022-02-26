@@ -3,9 +3,9 @@ import TrippleToggle from './TrippleToggle/TrippleToggle';
 
 const ThemeSelector = (props) => {
     return (
-        <div className="theme-selector">
+        <div className={classes.ThemeSelector}>
             <div className={classes.Label}>THEME</div>
-            <TrippleToggle></TrippleToggle>
+            <TrippleToggle theme={props.theme}></TrippleToggle>
         </div>
     );
 };

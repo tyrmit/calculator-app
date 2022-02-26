@@ -1,3 +1,47 @@
 .TrippleToggle {
+    width: 80px;
+    margin-left: 10px;
+}
+
+.Label {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 0.5rem;
+}
+
+.Toggle {
+    width: 100%;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.ToggleSwitch {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.ToggleTheme1 {
     background-color: var(--keypad-background-color1);
+}
+
+.SwitchTheme1 {
+    background-color: var(--primary-key-background-color1);
+}
+
+.ToggleTheme2 {
+    background-color: var(--keypad-background-color2);
+}
+
+.SwitchTheme2 {
+    background-color: var(--primary-key-background-color2);
+}
+
+.ToggleTheme3 {
+    background-color: var(--keypad-background-color3);
+}
+
+.SwitchTheme3 {
+    background-color: var(--primary-key-background-color3);
 }
