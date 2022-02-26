@@ -4,5 +4,5 @@
 }
 
 .Label {
-    font-size: 0.5rem;
+    font-size: var(--small-text-size);
 }

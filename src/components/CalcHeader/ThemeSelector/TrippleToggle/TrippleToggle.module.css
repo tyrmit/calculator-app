@@ -7,19 +7,23 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    font-size: 0.5rem;
+    font-size: var(--small-text-size);
+    padding: 0 10px;
 }
 
 .Toggle {
     width: 100%;
-    border-radius: 10px;
-    padding: 4px;
+    height: 24px;
+    border-radius: 20px;
+    margin-top: 5px;
+    padding: 4px 5px;
 }
 
 .ToggleSwitch {
-    width: 8px;
-    height: 8px;
+    width: 0.5rem;
+    height: 0.5rem;
     border-radius: 50%;
+    transition: transform 1s;
 }
 
 .ToggleTheme1 {
@@ -28,6 +32,7 @@
 
 .SwitchTheme1 {
     background-color: var(--primary-key-background-color1);
+    transform: translateX(0);
 }
 
 .ToggleTheme2 {
@@ -36,6 +41,7 @@
 
 .SwitchTheme2 {
     background-color: var(--primary-key-background-color2);
+    transform: translateX(25px);
 }
 
 .ToggleTheme3 {
@@ -44,4 +50,5 @@
 
 .SwitchTheme3 {
     background-color: var(--primary-key-background-color3);
+    transform: translateX(55px);
 }
