@@ -7,6 +7,10 @@
     height: 100vh;
 }
 
+.Calc {
+    margin: 0 20px;
+}
+
 .Theme1 {
     background-color: var(--main-background-color1);
 }

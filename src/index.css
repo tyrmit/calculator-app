@@ -15,9 +15,8 @@
     --primary-key-shadow-color1: hsl(6, 70%, 34%);
     --secondary-key-background-color1: hsl(30, 25%, 89%);
     --secondary-key-shadow-color1: hsl(28, 16%, 65%);
-    --neutral-text-color1: hsl(221, 14%, 31%);
-    --primary-text-color1: hsl(0, 0, 100%);
-    --secondary-text-color1: var(--primary-text-color1);
+    --neutral-text-color1: rgb(68, 75, 90);
+    --primary-text-color1: rgb(255, 255, 255);
 
     /* Theme #2 Colors */
     --main-background-color2: hsl(0, 0%, 90%);
@@ -29,9 +28,8 @@
     --primary-key-shadow-color2: hsl(25, 99%, 27%);
     --secondary-key-background-color2: hsl(45, 7%, 89%);
     --secondary-key-shadow-color2: hsl(35, 11%, 61%);
-    --neutral-text-color2: hsl(60, 10%, 19%);
-    --primary-text-color2: hsl(0, 0, 100%);
-    --secondary-text-color2: var(--primary-text-color2);
+    --neutral-text-color2: hsl(60, 9%, 19%);
+    --primary-text-color2: hsl(0, 0%, 100%);
 
     /* Theme #3 Colors */
     --main-background-color3: hsl(268, 75%, 9%);
@@ -44,8 +42,8 @@
     --secondary-key-background-color3: hsl(268, 47%, 21%);
     --secondary-key-shadow-color3: hsl(290, 70%, 36%);
     --neutral-text-color3: hsl(52, 100%, 62%);
-    --primary-text-color3: hsl(198, 20%, 13%);
-    --secondary-text-color3: hsl(0, 0, 100%);
+    --primary-text-color3: hsl(198, 19%, 13%);
+    --secondary-text-color3: hsl(0, 0%, 100%);
 }
 
 body {

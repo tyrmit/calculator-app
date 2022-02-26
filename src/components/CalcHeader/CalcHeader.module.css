@@ -1,0 +1,17 @@
+.CalcHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.Theme1 {
+    color: var(--primary-text-color1);
+}
+
+.Theme2 {
+    color: var(--neutral-text-color2);
+}
+
+.Theme3 {
+    color: var(--neutral-text-color3);
+}

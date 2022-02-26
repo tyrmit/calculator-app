@@ -13,12 +13,14 @@ function App() {
 
     return (
         <main className={[classes.App, classes[`Theme${themeID}`]].join(' ')}>
-            <CalcHeader
-                theme={themeID}
-                themeUpdate={handleThemeUpdate}
-            ></CalcHeader>
-            <CalcScreen theme={themeID}></CalcScreen>
-            <CalcKeypad theme={themeID}></CalcKeypad>
+            <div className={classes.Calc}>
+                <CalcHeader
+                    theme={themeID}
+                    themeUpdate={handleThemeUpdate}
+                ></CalcHeader>
+                <CalcScreen theme={themeID}></CalcScreen>
+                <CalcKeypad theme={themeID}></CalcKeypad>
+            </div>
         </main>
     );
 }
