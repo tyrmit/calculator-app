@@ -1,13 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
+
+:root {
+    /* Theme #1 Colors */
+    --main-background-color1: hsl(222, 26%, 31%);
+    --keypad-background-color1: hsl(223, 31%, 20%);
+    --screen-background-color1: hsl(224, 36%, 15%);
+    --neutral-key-background-color1: hsl(225, 21%, 49%);
+    --neutral-key-shadow-color1: hsl(224, 28%, 35%);
+    --primary-key-background-color1: hsl(6, 63%, 50%);
+    --primary-key-shadow-color1: hsl(6, 70%, 34%);
+    --secondary-key-background-color1: hsl(30, 25%, 89%);
+    --secondary-key-shadow-color1: hsl(28, 16%, 65%);
+    --neutral-text-color1: hsl(221, 14%, 31%);
+    --primary-text-color1: hsl(0, 0, 100%);
+    --secondary-text-color1: var(--primary-text-color1);
+
+    /* Theme #2 Colors */
+    --main-background-color2: hsl(0, 0%, 90%);
+    --keypad-background-color2: hsl(0, 5%, 81%);
+    --screen-background-color2: hsl(0, 0%, 93%);
+    --neutral-key-background-color2: hsl(185, 42%, 37%);
+    --neutral-key-shadow-color2: hsl(185, 58%, 25%);
+    --primary-key-background-color2: hsl(25, 98%, 40%);
+    --primary-key-shadow-color2: hsl(25, 99%, 27%);
+    --secondary-key-background-color2: hsl(45, 7%, 89%);
+    --secondary-key-shadow-color2: hsl(35, 11%, 61%);
+    --neutral-text-color2: hsl(60, 10%, 19%);
+    --primary-text-color2: hsl(0, 0, 100%);
+    --secondary-text-color2: var(--primary-text-color2);
+
+    /* Theme #3 Colors */
+    --main-background-color3: hsl(268, 75%, 9%);
+    --keypad-background-color3: hsl(268, 71%, 12%);
+    --screen-background-color3: var(--keypad-background-color3);
+    --neutral-key-background-color3: hsl(281, 89%, 26%);
+    --neutral-key-shadow-color3: hsl(285, 91%, 52%);
+    --primary-key-background-color3: hsl(176, 100%, 44%);
+    --primary-key-shadow-color3: hsl(177, 92%, 70%);
+    --secondary-key-background-color3: hsl(268, 47%, 21%);
+    --secondary-key-shadow-color3: hsl(290, 70%, 36%);
+    --neutral-text-color3: hsl(52, 100%, 62%);
+    --primary-text-color3: hsl(198, 20%, 13%);
+    --secondary-text-color3: hsl(0, 0, 100%);
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: 'Spartan', sans-serif;
+    font-size: 32px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
