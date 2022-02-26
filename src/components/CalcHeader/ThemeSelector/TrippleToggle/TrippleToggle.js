@@ -1,8 +1,8 @@
 import classes from './TrippleToggle.module.css';
 
-const TrippleToggle = ({ theme }) => {
+const TrippleToggle = ({ theme, click }) => {
     return (
-        <div className={classes.TrippleToggle}>
+        <div className={classes.TrippleToggle} onClick={click}>
             <div className={classes.Label}>
                 <div>1</div>
                 <div>2</div>
