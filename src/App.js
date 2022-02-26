@@ -7,7 +7,9 @@ import { useState } from 'react';
 
 function App() {
     const [themeID, setThemeID] = useState(1);
-    const handleThemeUpdate = (newThemeID) => {
+    const handleThemeUpdate = () => {
+        let newThemeID = themeID + 1;
+        if (newThemeID > 3) newThemeID = 1;
         setThemeID(newThemeID);
     };
 

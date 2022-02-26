@@ -11,7 +11,10 @@ const CalcHeader = (props) => {
             ].join(' ')}
         >
             <div>calc</div>
-            <ThemeSelector></ThemeSelector>
+            <ThemeSelector
+                theme={props.theme}
+                click={props.themeUpdate}
+            ></ThemeSelector>
         </header>
     );
 };
