@@ -46,10 +46,13 @@
     --secondary-text-color3: hsl(0, 0%, 100%);
 }
 
+html {
+    font-size: 32px;
+}
+
 body {
     margin: 0;
     font-family: 'Spartan', sans-serif;
-    font-size: 32px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
