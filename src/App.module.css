@@ -5,6 +5,7 @@
     padding-top: 5vh;
     width: 100vw;
     height: 100vh;
+    transition: background-color 1s, color 1s;
 }
 .Calc {
     width: 90%;
