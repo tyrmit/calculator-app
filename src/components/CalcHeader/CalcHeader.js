@@ -4,8 +4,13 @@ import classes from './CalcHeader.module.css';
 
 const CalcHeader = (props) => {
     return (
-        <header className={classes.CalcHeader}>
-            <div className={classes[`Theme${props.theme}`]}>calc</div>
+        <header
+            className={[
+                classes.CalcHeader,
+                classes[`Theme${props.theme}`],
+            ].join(' ')}
+        >
+            <div>calc</div>
             <ThemeSelector></ThemeSelector>
         </header>
     );
