@@ -2,19 +2,13 @@ import ThemeSelector from './ThemeSelector/ThemeSelector';
 
 import classes from './CalcHeader.module.css';
 
-const CalcHeader = (props) => {
+const CalcHeader = ({ theme }) => {
     return (
         <header
-            className={[
-                classes.CalcHeader,
-                classes[`Theme${props.theme}`],
-            ].join(' ')}
+            className={[classes.CalcHeader, classes[`Theme${theme}`]].join(' ')}
         >
             <div>calc</div>
-            <ThemeSelector
-                theme={props.theme}
-                click={props.themeUpdate}
-            ></ThemeSelector>
+            <ThemeSelector theme={theme}></ThemeSelector>
         </header>
     );
 };

@@ -1,8 +1,15 @@
+import { useDispatch } from 'react-redux';
+import { changeTheme } from '../../../../store/actions/calcActions';
 import classes from './TrippleToggle.module.css';
 
-const TrippleToggle = ({ theme, click }) => {
+const TrippleToggle = ({ theme }) => {
+    const dispatch = useDispatch();
+
     return (
-        <div className={classes.TrippleToggle} onClick={click}>
+        <div
+            className={classes.TrippleToggle}
+            onClick={() => dispatch(changeTheme(theme))}
+        >
             <div className={classes.Label}>
                 <div>1</div>
                 <div>2</div>
