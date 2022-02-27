@@ -1,0 +1,22 @@
+.Screen {
+    width: 100%;
+    height: 10vh;
+    border-radius: 10px;
+    transition: background-color 1s, color 1s;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.Theme1 {
+    background-color: var(--screen-background-color1);
+}
+
+.Theme2 {
+    background-color: var(--screen-background-color2);
+}
+
+.Theme3 {
+    background-color: var(--screen-background-color3);
+}

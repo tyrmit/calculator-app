@@ -1,11 +1,11 @@
 import classes from './ThemeSelector.module.css';
 import TrippleToggle from './TrippleToggle/TrippleToggle';
 
-const ThemeSelector = ({ theme }) => {
+const ThemeSelector = ({ theme, click }) => {
     return (
         <div className={classes.ThemeSelector}>
             <div className={classes.Label}>THEME</div>
-            <TrippleToggle theme={theme}></TrippleToggle>
+            <TrippleToggle theme={theme} click={click}></TrippleToggle>
         </div>
     );
 };

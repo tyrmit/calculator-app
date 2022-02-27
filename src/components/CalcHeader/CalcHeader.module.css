@@ -4,16 +4,5 @@
     align-items: flex-end;
     width: 100%;
     margin-bottom: 5vh;
-}
-
-.Theme1 {
-    color: var(--primary-text-color1);
-}
-
-.Theme2 {
-    color: var(--neutral-text-color2);
-}
-
-.Theme3 {
-    color: var(--neutral-text-color3);
+    transition: background-color 1s, color 1s;
 }
