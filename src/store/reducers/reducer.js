@@ -17,6 +17,8 @@ const reducer = (state = initialState, action) => {
             return resetHelper(state);
         case actionTypes.PRESS_NUM_KEY:
             return numKeyHelper(state, action);
+        case actionTypes.PRESS_DEL_KEY:
+            return delKeyHelper(state);
         default:
             return state;
     }
@@ -35,6 +37,21 @@ const numKeyHelper = (state, action) => {
     if (state.currentScreenText.length < 10) {
         let num = state.currentOperand;
         num = num * 10 + +action.key;
+
+        return {
+            ...state,
+            currentOperand: num,
+            currentScreenText: `${num}`,
+        };
+    } else {
+        return state;
+    }
+};
+
+const delKeyHelper = (state) => {
+    if (state.currentScreenText !== '0') {
+        let num = state.currentOperand;
+        num = Number.parseInt(num / 10);
 
         return {
             ...state,
