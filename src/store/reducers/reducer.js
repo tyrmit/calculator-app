@@ -36,6 +36,9 @@ const resetHelper = (state) => ({
     lastOperator: null,
     lastOperand: 0,
     currentOperand: 0,
+    decimalPressed: false,
+    currentMantissa: 0,
+    fractionOrderOfMag: 1,
 });
 
 const numKeyHelper = (state, action) => {
