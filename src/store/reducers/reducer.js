@@ -72,12 +72,30 @@ const numKeyHelper = (state, action) => {
 const delKeyHelper = (state) => {
     if (state.currentScreenText !== '0') {
         let num = state.currentOperand;
-        num = Number.parseInt(num / 10);
+        let mantissa = state.currentMantissa;
+        let orderOfMag = state.fractionOrderOfMag;
+        let decPressed = state.decimalPressed;
+        let screenText = '';
+
+        if (!decPressed) {
+            num = Number.parseInt(num / 10);
+            screenText = `${num}`;
+        } else {
+            let fracToWhole = Number.parseInt((mantissa * orderOfMag) / 10);
+            orderOfMag /= 10;
+            mantissa = fracToWhole / orderOfMag;
+            screenText = `${num + mantissa}`;
+
+            if (mantissa === 0) decPressed = false;
+        }
 
         return {
             ...state,
             currentOperand: num,
-            currentScreenText: `${num}`,
+            currentScreenText: screenText,
+            currentMantissa: mantissa,
+            fractionOrderOfMag: orderOfMag,
+            decimalPressed: decPressed,
         };
     } else {
         return state;
