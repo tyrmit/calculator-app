@@ -7,6 +7,9 @@ const initialState = {
     lastOperator: null,
     lastOperand: 0,
     currentOperand: 0,
+    decimalPressed: false,
+    currentMantissa: 0,
+    fractionOrderOfMag: 1,
 };
 
 const reducer = (state = initialState, action) => {
@@ -19,6 +22,8 @@ const reducer = (state = initialState, action) => {
             return numKeyHelper(state, action);
         case actionTypes.PRESS_DEL_KEY:
             return delKeyHelper(state);
+        case actionTypes.PRESS_DOT_KEY:
+            return { ...state, decimalPressed: true };
         default:
             return state;
     }
@@ -36,12 +41,25 @@ const resetHelper = (state) => ({
 const numKeyHelper = (state, action) => {
     if (state.currentScreenText.length < 10) {
         let num = state.currentOperand;
-        num = num * 10 + +action.key;
+        let mantissa = state.currentMantissa;
+        let orderOfMag = state.fractionOrderOfMag;
+        let screenText = '';
+
+        if (!state.decimalPressed) {
+            num = num * 10 + +action.key;
+            screenText = `${num}`;
+        } else {
+            orderOfMag = orderOfMag * 10;
+            mantissa += +action.key / orderOfMag;
+            screenText = `${num + mantissa}`;
+        }
 
         return {
             ...state,
             currentOperand: num,
-            currentScreenText: `${num}`,
+            currentScreenText: screenText,
+            currentMantissa: mantissa,
+            fractionOrderOfMag: orderOfMag,
         };
     } else {
         return state;

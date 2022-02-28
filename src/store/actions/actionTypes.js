@@ -5,3 +5,4 @@ export const PRESS_OPERATOR_KEY = 'calc/operatorKeyPressed';
 export const PRESS_RESET_KEY = 'calc/resetKeyPressed';
 export const PRESS_NUM_KEY = 'calc/numberKeyPressed';
 export const PRESS_DEL_KEY = 'calc/delKeyPressed';
+export const PRESS_DOT_KEY = 'calc/dotKeyPressed';

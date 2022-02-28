@@ -25,6 +25,8 @@ export const pressKey = (key) => {
         return { type: actionTypes.PRESS_RESET_KEY };
     } else if (key === 'DEL') {
         return { type: actionTypes.PRESS_DEL_KEY };
+    } else if (key === '.') {
+        return { type: actionTypes.PRESS_DOT_KEY };
     }
 };
 
