@@ -12,3 +12,18 @@ export const changeTheme = (currentThemeID) => {
         newTheme: themeID,
     };
 };
+
+export const screenUpdated = (newDigit) => ({
+    type: actionTypes.UPDATE_SCREEN,
+    newDigit: newDigit,
+});
+
+export const pressKey = (key) => {
+    if (Number.isInteger(+key)) {
+        return { type: actionTypes.PRESS_NUM_KEY, key: key };
+    } else if (key === 'RESET') {
+        return { type: actionTypes.PRESS_RESET_KEY };
+    }
+};
+
+// const pressOperator = (opAction) => {};
