@@ -1,0 +1,75 @@
+.KeyButton {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    transition: all 1s;
+}
+
+.Small {
+    width: 60px;
+}
+
+.Large {
+    width: calc(100% - 15px);
+    grid-column: auto / span 2;
+}
+
+.Normal.Theme1 {
+    background-color: var(--neutral-key-background-color1);
+    color: var(--neutral-text-color1);
+    box-shadow: 0 5px 0 var(--neutral-key-shadow-color1);
+}
+
+.Normal.Theme2 {
+    background-color: var(--neutral-key-background-color2);
+    color: var(--neutral-text-color2);
+    box-shadow: 0 5px 0 var(--neutral-key-shadow-color2);
+}
+
+.Normal.Theme3 {
+    background-color: var(--neutral-key-background-color3);
+    color: var(--neutral-text-color3);
+    box-shadow: 0 5px 0 var(--neutral-key-shadow-color3);
+}
+
+.Primary.Theme1 {
+    background-color: var(--primary-key-background-color1);
+    color: var(--primary-text-color1);
+    box-shadow: 0 5px 0 var(--primary-key-shadow-color1);
+}
+
+.Primary.Theme2 {
+    background-color: var(--primary-key-background-color2);
+    color: var(--primary-text-color2);
+    box-shadow: 0 5px 0 var(--primary-key-shadow-color2);
+}
+
+.Primary.Theme3 {
+    background-color: var(--primary-key-background-color3);
+    color: var(--primary-text-color3);
+    box-shadow: 0 5px 0 var(--primary-key-shadow-color3);
+}
+
+.Secondary {
+    font-size: var(--key-text-size-small);
+}
+
+.Secondary.Theme1 {
+    background-color: var(--secondary-key-background-color1);
+    color: var(--secondary-text-color1);
+    box-shadow: 0 5px 0 var(--secondary-key-shadow-color1);
+}
+
+.Secondary.Theme2 {
+    background-color: var(--secondary-key-background-color2);
+    color: var(--secondary-text-color2);
+    box-shadow: 0 5px 0 var(--secondary-key-shadow-color1);
+}
+
+.Secondary.Theme3 {
+    background-color: var(--secondary-key-background-color3);
+    color: var(--secondary-text-color3);
+    box-shadow: 0 5px 0 var(--secondary-key-shadow-color1);
+}

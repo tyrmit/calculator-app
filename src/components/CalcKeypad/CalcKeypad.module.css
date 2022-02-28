@@ -1,0 +1,23 @@
+.CalcKeypad {
+    border-radius: 10px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    justify-items: center;
+    row-gap: 20px;
+    font-size: var(--key-text-size);
+    transition: background-color 1s, color 1s;
+}
+
+.Theme1 {
+    background-color: var(--keypad-background-color1);
+}
+
+.Theme2 {
+    background-color: var(--keypad-background-color2);
+}
+
+.Theme3 {
+    background-color: var(--keypad-background-color3);
+}

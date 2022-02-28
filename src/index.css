@@ -9,12 +9,12 @@
     --main-background-color1: hsl(222, 26%, 31%);
     --keypad-background-color1: hsl(223, 31%, 20%);
     --screen-background-color1: hsl(224, 36%, 15%);
-    --neutral-key-background-color1: hsl(225, 21%, 49%);
-    --neutral-key-shadow-color1: hsl(224, 28%, 35%);
+    --neutral-key-background-color1: hsl(30, 25%, 89%);
+    --neutral-key-shadow-color1: hsl(28, 16%, 65%);
     --primary-key-background-color1: hsl(6, 63%, 50%);
     --primary-key-shadow-color1: hsl(6, 70%, 34%);
-    --secondary-key-background-color1: hsl(30, 25%, 89%);
-    --secondary-key-shadow-color1: hsl(28, 16%, 65%);
+    --secondary-key-background-color1: hsl(225, 21%, 49%);
+    --secondary-key-shadow-color1: hsl(224, 28%, 35%);
     --neutral-text-color1: rgb(68, 75, 90);
     --primary-text-color1: rgb(255, 255, 255);
 
@@ -22,12 +22,12 @@
     --main-background-color2: hsl(0, 0%, 90%);
     --keypad-background-color2: hsl(0, 5%, 81%);
     --screen-background-color2: hsl(0, 0%, 93%);
-    --neutral-key-background-color2: hsl(185, 42%, 37%);
-    --neutral-key-shadow-color2: hsl(185, 58%, 25%);
+    --neutral-key-background-color2: hsl(45, 7%, 89%);
+    --neutral-key-shadow-color2: hsl(35, 11%, 61%);
     --primary-key-background-color2: hsl(25, 98%, 40%);
     --primary-key-shadow-color2: hsl(25, 99%, 27%);
-    --secondary-key-background-color2: hsl(45, 7%, 89%);
-    --secondary-key-shadow-color2: hsl(35, 11%, 61%);
+    --secondary-key-background-color2: hsl(185, 42%, 37%);
+    --secondary-key-shadow-color2: hsl(185, 58%, 25%);
     --neutral-text-color2: hsl(60, 9%, 19%);
     --primary-text-color2: hsl(0, 0%, 100%);
 
@@ -48,6 +48,8 @@
     /* General relative font sizes */
     --small-text-size: 0.35rem;
     --big-text-size: 1.2rem;
+    --key-text-size: 0.8rem;
+    --key-text-size-small: 0.5rem;
 }
 
 html {
