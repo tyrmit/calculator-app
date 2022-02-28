@@ -1,4 +1,4 @@
-import * as actionTypes from '../actionTypes/actionTypes';
+import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     currentTheme: 1,
