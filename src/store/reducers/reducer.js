@@ -12,6 +12,7 @@ const initialState = {
     operatorPressed: false,
     fractionOrderOfMag: 1,
     lastFractionOrderOfMag: 1,
+    parkedTotal: 0,
 };
 
 const reducer = (state = initialState, action) => {
@@ -55,6 +56,7 @@ const resetHelper = (state) => ({
     operatorPressed: false,
     currentMantissa: 0,
     fractionOrderOfMag: 1,
+    parkedTotal: 0,
 });
 
 const numKeyHelper = (state, action) => {
@@ -133,10 +135,11 @@ const delKeyHelper = (state) => {
     }
 };
 
-const opKeyHelper = (state, action) => {
+export const opKeyHelper = (state, action) => {
     if (!state.lastOperator) {
         return {
             ...state,
+            calcTotal: state.currentInteger + state.currentMantissa,
             lastOperator: action.key,
             lastOperand: state.currentInteger + state.currentMantissa,
             lastFractionOrderOfMag: state.fractionOrderOfMag,
@@ -147,47 +150,58 @@ const opKeyHelper = (state, action) => {
         };
     }
 
-    let calcResult;
+    let nextOp = action.key;
     let calcTotal = state.calcTotal;
     let lastOperand = state.lastOperand;
-    const { currentInteger, currentMantissa } = state;
-    const nextOp = action.key === '=' ? null : action.key;
+    let parkedValue = state.parkedTotal;
+    const lastOp = state.lastOperator;
+    const currOperand = state.currentInteger + state.currentMantissa;
     const orderOfMag = Math.max(
         state.fractionOrderOfMag,
         state.lastFractionOrderOfMag
     );
 
-    switch (state.lastOperator) {
-        case '+':
-            // Need to multiply both numbers by order of mag, then divide the result, to cope with floating precision
-            calcResult =
-                Math.round(
-                    (currentInteger + currentMantissa) * orderOfMag +
-                        lastOperand * orderOfMag
-                ) / orderOfMag;
-            calcTotal = calcResult;
-            lastOperand = calcResult;
-            break;
+    let operand1 = calcTotal;
+    let operand2 = currOperand;
 
-        case '-':
-            calcResult =
-                Math.round(
-                    lastOperand * orderOfMag -
-                        (currentInteger + currentMantissa) * orderOfMag
-                ) / orderOfMag;
-            calcTotal = calcResult;
-            lastOperand = calcResult;
-            break;
-
-        default:
-            break;
+    if (
+        (nextOp === 'x' || nextOp === '/') &&
+        (lastOp === 'x' || lastOp === '/')
+    ) {
+        console.log('Next op is */, last op was +-');
+        operand1 = calcTotal;
+    }
+    if (
+        (nextOp === 'x' || nextOp === '/') &&
+        (lastOp === '+' || lastOp === '-')
+    ) {
+        console.log('Next op is */, last op was +-');
+        parkedValue = calcTotal;
+        operand1 = lastOperand;
+    } else if (
+        (nextOp === '+' || nextOp === '-') &&
+        (lastOp === 'x' || lastOp === '/')
+    ) {
+        console.log('Next op is +-, last op was */');
+        calcTotal += parkedValue;
+        parkedValue = 0;
     }
 
-    // console.log(calcResult, {
-    //     operand1: state.lastOperand,
-    //     operand2: currentInteger + currentMantissa,
-    //     operation: state.lastOperator,
-    //     orderOfMag: orderOfMag,
+    calcTotal = performCalc(operand1, operand2, lastOp, orderOfMag);
+
+    if (nextOp === '=') {
+        lastOperand = 0;
+        nextOp = null;
+    } else {
+        lastOperand = currOperand;
+    }
+
+    // console.log(calcTotal, {
+    //     lastOperand,
+    //     currOperand,
+    //     lastOperator: state.lastOperator,
+    //     nextOperator: nextOp,
+    //     orderOfMag,
     // });
 
     return {
@@ -201,7 +215,36 @@ const opKeyHelper = (state, action) => {
         currentMantissa: 0,
         fractionOrderOfMag: 1,
         lastFractionOrderOfMag: orderOfMag,
+        parkedTotal: parkedValue,
     };
+};
+
+export const performCalc = (operand1, operand2, operator, orderOfMag) => {
+    console.log('performCalc: ', operand1, operand2, operator, orderOfMag);
+    let calcResult = 0;
+    switch (operator) {
+        case '+':
+            // Need to multiply both numbers by order of mag, then divide the result, to cope with floating precision
+            calcResult =
+                Math.round(operand1 * orderOfMag + operand2 * orderOfMag) /
+                orderOfMag;
+            break;
+        case '-':
+            calcResult =
+                Math.round(operand1 * orderOfMag - operand2 * orderOfMag) /
+                orderOfMag;
+            break;
+        case 'x':
+            calcResult = operand1 * operand2;
+            break;
+        case '/':
+            calcResult = operand1 / operand2;
+            break;
+        default:
+            break;
+    }
+
+    return calcResult;
 };
 
 /*
