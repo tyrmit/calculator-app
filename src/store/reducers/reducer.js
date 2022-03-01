@@ -74,10 +74,10 @@ const delKeyHelper = (state) => {
         let num = state.currentOperand;
         let mantissa = state.currentMantissa;
         let orderOfMag = state.fractionOrderOfMag;
-        let decPressed = state.decimalPressed;
+        let dotPressed = state.decimalPressed;
         let screenText = '';
 
-        if (!decPressed) {
+        if (!dotPressed) {
             num = Number.parseInt(num / 10);
             screenText = `${num}`;
         } else {
@@ -86,7 +86,7 @@ const delKeyHelper = (state) => {
             mantissa = fracToWhole / orderOfMag;
             screenText = `${num + mantissa}`;
 
-            if (mantissa === 0) decPressed = false;
+            if (mantissa === 0) dotPressed = false;
         }
 
         return {
@@ -95,7 +95,7 @@ const delKeyHelper = (state) => {
             currentScreenText: screenText,
             currentMantissa: mantissa,
             fractionOrderOfMag: orderOfMag,
-            decimalPressed: decPressed,
+            decimalPressed: dotPressed,
         };
     } else {
         return state;
