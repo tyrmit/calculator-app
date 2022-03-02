@@ -36,7 +36,7 @@ const reducer = (state = initialState, action) => {
 const resetHelper = (state) => initialState;
 
 const numKeyHelper = (state, action) => {
-    if (state.currentScreenText.length < 10) {
+    if (Number(state.currentInteger).toString().length < 10) {
         let num = state.currentInteger;
         let fraction = state.currentFraction;
         let orderOfMag = state.fractionOrderOfMag;
