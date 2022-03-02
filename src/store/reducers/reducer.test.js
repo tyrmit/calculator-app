@@ -1,4 +1,5 @@
-import { performCalc, opKeyHelper } from './reducer';
+import reducer, { initialState, performCalc } from './reducer';
+import { pressKey } from '../actions/calcActions';
 
 describe('performCalc function returns the correct results', () => {
     it('returns 3 for 1.5 + 1.5', () => {
@@ -22,32 +23,150 @@ describe('performCalc function returns the correct results', () => {
     });
 });
 
-describe('opKeyHelper returns the correct state', () => {
-    const initialState = {
-        currentTheme: 1,
-        calcTotal: 0,
-        currentScreenText: '0',
-        currentInteger: 0,
-        currentMantissa: 0,
-        lastOperator: null,
-        lastOperand: 0,
-        decimalPressed: false,
-        operatorPressed: false,
-        fractionOrderOfMag: 1,
-        lastFractionOrderOfMag: 1,
-        parkedTotal: 0,
-    };
+describe('reducer returns correct state', () => {
+    it('calculates the correct total (15.25) for addition and subtraction (5 + 20.5 - 10.25)', () => {
+        let state = reducer(undefined, pressKey('5'));
+        state = reducer(state, pressKey('+'));
 
-    it('returns 2 when adding 1 + 1', () => {
-        const state = {
-            ...initialState,
-            lastOperand: 1,
-            currentInteger: 1,
-            lastOperator: '+',
-            calcTotal: 1,
-        };
+        expect(state.currentScreenText).toEqual('5');
 
-        const result = opKeyHelper(state, { key: '=' });
-        expect(result.currentScreenText).toEqual('2');
+        state = reducer(state, pressKey('2'));
+        state = reducer(state, pressKey('0'));
+        state = reducer(state, pressKey('.'));
+        state = reducer(state, pressKey('5'));
+        state = reducer(state, pressKey('-'));
+
+        expect(state.currentScreenText).toEqual('25.5');
+
+        state = reducer(state, pressKey('1'));
+        state = reducer(state, pressKey('0'));
+        state = reducer(state, pressKey('.'));
+        state = reducer(state, pressKey('2'));
+        state = reducer(state, pressKey('5'));
+        state = reducer(state, pressKey('='));
+
+        expect(state.currentScreenText).toEqual('15.25');
+    });
+
+    it('calculates the correct total (1,250.625) for multiply and divide (2.5 x 3 / 2 x 1000.5 / 3)', () => {
+        let state = reducer(undefined, pressKey('2'));
+        state = reducer(state, pressKey('.'));
+        state = reducer(state, pressKey('5'));
+        state = reducer(state, pressKey('x'));
+
+        expect(state.currentScreenText).toEqual('2.5');
+
+        state = reducer(state, pressKey('3'));
+        state = reducer(state, pressKey('/'));
+
+        expect(state.currentScreenText).toEqual('7.5');
+
+        state = reducer(state, pressKey('2'));
+        state = reducer(state, pressKey('x'));
+
+        expect(state.currentScreenText).toEqual('3.75');
+
+        state = reducer(state, pressKey('1'));
+        state = reducer(state, pressKey('0'));
+        state = reducer(state, pressKey('0'));
+        state = reducer(state, pressKey('0'));
+        state = reducer(state, pressKey('.'));
+        state = reducer(state, pressKey('5'));
+        state = reducer(state, pressKey('/'));
+
+        expect(state.currentScreenText).toEqual('3,751.875');
+
+        state = reducer(state, pressKey('3'));
+        state = reducer(state, pressKey('='));
+
+        expect(state.currentScreenText).toEqual('1,250.625');
+    });
+
+    it('calculates the correct total () for addition, multiply, divide and subtract ()', () => {
+        let state = reducer(undefined, pressKey('2'));
+        state = reducer(state, pressKey('+'));
+
+        expect(state.currentScreenText).toEqual('2');
+
+        state = reducer(state, pressKey('6'));
+        state = reducer(state, pressKey('x'));
+
+        expect(state.currentScreenText).toEqual('6');
+
+        state = reducer(state, pressKey('2'));
+        state = reducer(state, pressKey('/'));
+
+        expect(state.currentScreenText).toEqual('12');
+
+        state = reducer(state, pressKey('3'));
+        state = reducer(state, pressKey('-'));
+
+        expect(state.currentScreenText).toEqual('6');
+
+        state = reducer(state, pressKey('1'));
+        state = reducer(state, pressKey('='));
+
+        expect(state.currentScreenText).toEqual('5');
+    });
+
+    it('clears back to initial state when RESET button pressed', () => {
+        let state = reducer(undefined, pressKey('5'));
+        state = reducer(state, pressKey('+'));
+
+        expect(state.currentScreenText).toEqual('5');
+
+        state = reducer(state, pressKey('2'));
+        state = reducer(state, pressKey('0'));
+        state = reducer(state, pressKey('.'));
+        state = reducer(state, pressKey('5'));
+        state = reducer(state, pressKey('-'));
+
+        expect(state.currentScreenText).toEqual('25.5');
+
+        state = reducer(state, pressKey('RESET'));
+
+        expect(state).toEqual(initialState);
+    });
+
+    it('removes last digit from number when DEL is pressed', () => {
+        let state = reducer(undefined, pressKey('5'));
+        state = reducer(state, pressKey('2'));
+        state = reducer(state, pressKey('3'));
+        state = reducer(state, pressKey('4'));
+        state = reducer(state, pressKey('9'));
+        state = reducer(state, pressKey('8'));
+        state = reducer(state, pressKey('7'));
+
+        expect(state.currentScreenText).toEqual('5,234,987');
+
+        state = reducer(state, pressKey('DEL'));
+
+        expect(state.currentScreenText).toEqual('523,498');
+
+        state = reducer(state, pressKey('DEL'));
+        state = reducer(state, pressKey('DEL'));
+
+        expect(state.currentScreenText).toEqual('5,234');
+
+        state = reducer(state, pressKey('.'));
+
+        expect(state.currentScreenText).toEqual('5,234');
+
+        state = reducer(state, pressKey('5'));
+        state = reducer(state, pressKey('8'));
+
+        expect(state.currentScreenText).toEqual('5,234.58');
+
+        state = reducer(state, pressKey('DEL'));
+
+        expect(state.currentScreenText).toEqual('5,234.5');
+
+        state = reducer(state, pressKey('DEL'));
+
+        expect(state.currentScreenText).toEqual('5,234');
+
+        state = reducer(state, pressKey('0'));
+
+        expect(state.currentScreenText).toEqual('52,340');
     });
 });
