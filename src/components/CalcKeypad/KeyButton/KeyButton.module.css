@@ -1,10 +1,19 @@
-.KeyButton {
+/*.KeyButton {
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3px;
     transition: all 1s;
+}*/
+
+.KeyButton {
+    height: 60px;
+    border-radius: 3px;
+    transition: all 1s;
+    border: none;
+    font-size: inherit;
+    font-family: inherit;
 }
 
 .Small {

@@ -13,12 +13,12 @@ const KeyButton = ({ theme, size, type, children }) => {
     ];
 
     return (
-        <div
+        <button
             className={classList.join(' ')}
             onClick={() => dispatch(pressKey(children))}
         >
             {children}
-        </div>
+        </button>
     );
 };
 
