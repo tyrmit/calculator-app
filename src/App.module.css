@@ -9,7 +9,6 @@
 }
 .Calc {
     width: 337.5px;
-    max-width: 450px;
 }
 
 .Theme1 {
@@ -25,4 +24,10 @@
 .Theme3 {
     background-color: var(--main-background-color3);
     color: var(--neutral-text-color3);
+}
+
+@media (min-width: 810px) {
+    .Calc {
+        width: 450px;
+    }
 }

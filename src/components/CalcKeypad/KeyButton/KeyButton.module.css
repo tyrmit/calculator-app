@@ -73,3 +73,13 @@
     color: var(--secondary-text-color3);
     box-shadow: 0 5px 0 var(--secondary-key-shadow-color1);
 }
+
+@media (min-width: 810px) {
+    .Small {
+        width: 90px;
+    }
+
+    .Large {
+        width: calc(100% - 12px);
+    }
+}
