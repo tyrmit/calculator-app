@@ -5,7 +5,8 @@
     padding-top: 5vh;
     width: 100vw;
     height: 100vh;
-    transition: background-color 1s, color 1s;
+    transition-property: background-color, color;
+    transition-duration: var(--theme-change-animation-duration);
 }
 .Calc {
     width: 337.5px;

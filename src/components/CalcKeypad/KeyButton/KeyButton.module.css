@@ -2,7 +2,7 @@
     height: 60px;
     border-radius: 5px;
     transition-property: background-color, color, box-shadow;
-    transition-duration: 1s;
+    transition-duration: var(--theme-change-animation-duration);
     border: none;
     font-size: inherit;
     font-family: inherit;

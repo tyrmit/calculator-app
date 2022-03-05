@@ -4,5 +4,6 @@
     align-items: flex-end;
     width: 100%;
     margin-bottom: 5vh;
-    transition: background-color 1s, color 1s;
+    transition-property: background-color, color;
+    transition-duration: var(--theme-change-animation-duration);
 }

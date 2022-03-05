@@ -17,14 +17,16 @@
     border-radius: 20px;
     margin-top: 5px;
     padding: 4px 5px;
-    transition: background-color 1s, color 1s;
+    transition-property: background-color, color;
+    transition-duration: var(--theme-change-animation-duration);
 }
 
 .ToggleSwitch {
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
-    transition: transform 1s, background-color 1s, color 1s;
+    transition-property: background-color, color, transform;
+    transition-duration: var(--theme-change-animation-duration);
 }
 
 .ToggleTheme1 {

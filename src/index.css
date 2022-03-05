@@ -50,6 +50,9 @@
     --big-text-size: 1.2rem;
     --key-text-size: 0.8rem;
     --key-text-size-small: 0.5rem;
+
+    /* Animation Speed */
+    --theme-change-animation-duration: 0.6s;
 }
 
 html {

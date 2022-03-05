@@ -2,7 +2,8 @@
     width: 100%;
     height: 10vh;
     border-radius: 10px;
-    transition: background-color 1s, color 1s;
+    transition-property: background-color, color;
+    transition-duration: var(--theme-change-animation-duration);
     display: flex;
     justify-content: flex-end;
     align-items: center;
