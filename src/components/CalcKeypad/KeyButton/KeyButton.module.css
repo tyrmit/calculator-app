@@ -81,6 +81,6 @@
     }
 
     .Large {
-        width: calc(100% - 12px);
+        width: calc(100% - 30px);
     }
 }

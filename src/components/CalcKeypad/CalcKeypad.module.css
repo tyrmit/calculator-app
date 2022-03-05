@@ -22,3 +22,10 @@
 .Theme3 {
     background-color: var(--keypad-background-color3);
 }
+
+@media (min-width: 810px) {
+    .CalcKeypad {
+        row-gap: 30px;
+        padding: 40px 30px;
+    }
+}
