@@ -169,4 +169,16 @@ describe('reducer returns correct state', () => {
 
         expect(state.currentScreenText).toEqual('52,340');
     });
+
+    it('applies parked value when = is pressed', () => {
+        let state = reducer(undefined, pressKey('5'));
+        state = reducer(state, pressKey('+'));
+        state = reducer(state, pressKey('1'));
+        state = reducer(state, pressKey('+'));
+        state = reducer(state, pressKey('2'));
+        state = reducer(state, pressKey('x'));
+        state = reducer(state, pressKey('6'));
+        state = reducer(state, pressKey('='));
+        expect(state.currentScreenText).toEqual('18');
+    });
 });

@@ -162,8 +162,9 @@ const opKeyHelper = (state, action) => {
 
     // Checking the order of operations again after the calculation
     if (
-        (nextOp === '+' || nextOp === '-') &&
-        (lastOp === 'x' || lastOp === '/')
+        ((nextOp === '+' || nextOp === '-') &&
+            (lastOp === 'x' || lastOp === '/')) ||
+        nextOp === '='
     ) {
         // if the current operation is a + or -, but the last one was * or /, then we
         // can take the parked value out apply it to the total, since + and - don't take
